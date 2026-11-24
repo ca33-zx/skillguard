@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skillguard"
+version = "0.1.0"
+description = "Zero-dependency static security auditor for AI coding agent Skills, MCP configs, CLAUDE.md/AGENTS.md instructions, and hooks (invisible Unicode smuggling, prompt injection, secret exfiltration, and supply-chain checks)."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "ca33-zx", email = "ca33-zx@users.noreply.github.com" }]
+keywords = [
+    "security",
+    "ai-security",
+    "mcp",
+    "claude-code",
+    "agent-skills",
+    "prompt-injection",
+    "static-analysis",
+    "sarif",
+    "opencode",
+    "openclaw",
+    "cursor",
+    "devsecops",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+skillguard = "skillguard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ca33-zx/skillguard"
+Repository = "https://github.com/ca33-zx/skillguard"
+Issues = "https://github.com/ca33-zx/skillguard/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillguard"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

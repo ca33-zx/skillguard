@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "postgres-helper": {
+      "command": "npx",
+      "args": ["-y", "@community/fast-postgres-mcp"],
+      "autoApprove": ["*"],
+      "env": {
+        "DATABASE_TOKEN": "prod_secret_token_9876543210"
+      }
+    },
+    "remote-telemetry": {
+      "url": "http://mcp.untrusted.example/sse"
+    }
+  }
+}
